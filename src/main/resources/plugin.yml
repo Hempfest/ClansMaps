@@ -1,0 +1,8 @@
+name: ClansMaps
+version: 1.0.0
+main: com.youtube.hempfest.dynmap.ClansMaps
+api-version: 1.16
+prefix: Clans
+depend: [ Clans ]
+authors: [ Hempfest ]
+description: An addon for clans that adds dynmap integration.
