@@ -68,31 +68,6 @@ public class DynmapIntegration {
 		this.failedAttempt = failedAttempt;
 	}
 
-	/*
-	public void updateMap(String claimID) {
-		Claim c = new Claim(claimID);
-		int cx1 = c.getChunk().getX()*16;
-		int cz1 = c.getChunk().getZ()*16;
-
-		int cx2 = c.getChunk().getX()*16+17;
-		int cz2 = c.getChunk().getZ()*16+17;
-		String world = c.getChunk().getWorld().getName();
-
-		AreaMarker am = markerset.createAreaMarker(c.getClaimID(), c.getClan().getClanTag(), false, c.getChunk().getWorld().getName(), new double[1000], new double[1000], false);
-		double[] d1 = {cx1, cx2};
-		double[] d2 = {cz1, cz2};
-		am.setCornerLocations(d1, d2);
-		am.setLabel(c.getClaimID());
-		am.setDescription(c.getClan().getClanTag() + " - " + Arrays.asList(c.getClan().getMembers()).toString());
-		int stroke = 12;
-		double strokeOpac = 0.0;
-		double Opac = 100;
-		am.setLineStyle(stroke, strokeOpac, 0x42cbf5);
-		am.setFillStyle(Opac, 0x42cbf5);
-	}
-
-	 */
-
 	public void removeMarker(String claimID) {
 		Claim c = new Claim(claimID);
 		for (AreaMarker areaMarker : markerset.getAreaMarkers()) {

@@ -178,22 +178,5 @@ public final class ClansMaps extends JavaPlugin implements Listener {
 		}
 	}
 
-	/*
-	@EventHandler(priority = EventPriority.HIGH)
-	public void onCommand(PlayerCommandPreprocessEvent e) {
-		Player p = e.getPlayer();
-		String[] strs = e.getMessage().split(" ");
-		String label = strs[0].replace("/", "");
-		String[] args = new String[strs.length - 1];
-		System.arraycopy(strs, 1, args, 0, strs.length - 1);
-		int length = args.length;
-		StringLibrary lib = new StringLibrary();
-		if (label.equalsIgnoreCase("clan") || label.equalsIgnoreCase("c")) {
-
-		}
-	}
-
-	 */
-
 
 }
