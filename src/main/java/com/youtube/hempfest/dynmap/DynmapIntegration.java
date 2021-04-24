@@ -1,5 +1,6 @@
 package com.youtube.hempfest.dynmap;
 
+import com.youtube.hempfest.clans.HempfestClans;
 import com.youtube.hempfest.clans.util.construct.Claim;
 import java.util.Arrays;
 import org.bukkit.Bukkit;
@@ -27,8 +28,7 @@ public class DynmapIntegration {
 	public void fillMap(String[] ownedClaims) {
 		int i = 0;
 		for (String claim : ownedClaims) {
-
-			Claim c = new Claim(claim);
+			Claim c = HempfestClans.getInstance().claimManager.getClaim(claim);
 			int cx1 = c.getChunk().getX()*16;
 			int cz1 = c.getChunk().getZ()*16;
 
@@ -69,7 +69,7 @@ public class DynmapIntegration {
 	}
 
 	public void removeMarker(String claimID) {
-		Claim c = new Claim(claimID);
+		Claim c = HempfestClans.getInstance().claimManager.getClaim(claimID);
 		for (AreaMarker areaMarker : markerset.getAreaMarkers()) {
 			if (areaMarker.getMarkerID().equals(c.getClaimID())){
 				areaMarker.deleteMarker();

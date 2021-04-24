@@ -95,8 +95,8 @@ public final class ClansMaps extends JavaPlugin implements Listener {
 			if (args[0].equalsIgnoreCase("unmap")) {
 				if (Clan.clanUtil.getClan(p) != null) {
 					Clan clan = HempfestClans.clanManager(p);
-					if (Claim.claimUtil.isInClaim(p.getLocation())) {
-						Claim claim = new Claim(Claim.claimUtil.getClaimID(p.getLocation()));
+					if (HempfestClans.getInstance().claimManager.isInClaim(p.getLocation())) {
+						Claim claim = Claim.from(p.getLocation());
 						if (Arrays.asList(clan.getOwnedClaims()).contains(claim.getClaimID())) {
 							Set<AreaMarker> markers = integration.markerset.getAreaMarkers();
 							if (getUtil().getRankPower(p) >= 2) {
@@ -127,13 +127,13 @@ public final class ClansMaps extends JavaPlugin implements Listener {
 				if (Clan.clanUtil.getClan(p) != null) {
 					if (getUtil().getRankPower(p) >= getUtil().claimingClearance()) {
 						Clan clan = HempfestClans.clanManager(p);
-						if (Claim.claimUtil.isInClaim(p.getLocation())) {
+						if (HempfestClans.getInstance().claimManager.isInClaim(p.getLocation())) {
 							if (Arrays.asList(clan.getOwnedClaims()).contains(Claim.claimUtil.getClaimID(p.getLocation()))) {
 								integration.removeMarker(Claim.claimUtil.getClaimID(p.getLocation()));
 							} else {
 								if (getUtil().shieldStatus()) {
 									if (getUtil().overPowerBypass()) {
-										Claim claim = new Claim(Claim.claimUtil.getClaimID(p.getLocation()));
+										Claim claim = Claim.from(p.getLocation());
 										Clan clan2 = claim.getClan();
 										if (clan.getPower() > clan2.getPower()) {
 											integration.removeMarker(claim.getClaimID());
@@ -141,7 +141,7 @@ public final class ClansMaps extends JavaPlugin implements Listener {
 										}
 									}
 								} else {
-									Claim claim = new Claim(Claim.claimUtil.getClaimID(p.getLocation()));
+									Claim claim = Claim.from(p.getLocation());
 									Clan clan2 = new Clan(claim.getOwner());
 									if (clan.getPower() > clan2.getPower()) {
 										integration.removeMarker(claim.getClaimID());
